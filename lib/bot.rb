@@ -5,15 +5,15 @@ class Bot < Input
   def initialize
     super()
     user = Input.new
-    token = 'enter your token here'
-    chat = 'enter your id here'
+    token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
+    chat = 1_174_054_601
     text = <<~RAVEN
-              \n
-              /phones-to see our list of phones on sale
-              /stop-to leave the bot shop
-              /agent- to talk to talk to an actual human!
-      #{'        '}
-              NOTE: PLEASE SET UP YOUR TELEGRAM USERNAME SO THAT OUR NEXT AVAILABLE REPRESENTATIVE CAN WALK YOU THROUGH THE PURCHASE.
+      \n
+      Type:
+      /phones- for phones
+      /agent- to talk to an agent
+      \n
+      note: kindly set up your telegram username if you haven't yet.
     RAVEN
     catalog = <<~RAVEN
       \n
@@ -25,42 +25,44 @@ class Bot < Input
             * iphone 11 @ 110,000kshs
             * iphone 12 @ 180,000kshs
             Type a specific phone model starting with / e.g.
-            /iphone 5
+            (/iphone 5) in lowercase
     RAVEN
 
     Telegram::Bot::Client.run(token) do |bot|
       bot.listen do |message|
-        user_input = user.user_choice(message.text, ['/iphone 5', '/iphone 6', '/iphone 8', '/iphone 10', '/iphone 11', '/iphone 12'])
-        user_agreement = user.user_choice(message.text, ['/yes 5', '/yes 6', '/yes 8', '/yes 10', '/yes 11', '/yes 12'])
+        user_input = user.user_choice(message.text, ['/iphone 5',
+                                                     '/iphone 6',
+                                                     '/iphone 8',
+                                                     '/iphone 10',
+                                                     '/iphone 11',
+                                                     '/iphone 12'])
+        user_agreement = user.user_choice(message.text, ['/yes 5',
+                                                         '/yes 6',
+                                                         '/yes 8',
+                                                         '/yes 10',
+                                                         '/yes 11',
+                                                         '/yes 12'])
 
         case message.text
         when '/start'
-          bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}")
-          bot.api.send_message(chat_id: message.chat.id, text: "You can check our items on sale by typing:
-
-                    /phones-to see our list of phones on sale
-                    /stop-to leave the bot shop
-                    /agent- to talk to talk to an actual human!")
+          bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}" + text)
 
         when '/phones'
           bot.api.send_message(chat_id: message.chat.id, text: catalog)
 
         when user_input.to_s
-          bot.api.send_message(chat_id: message.chat.id, text: "Type #{user_option(user_input)} to buy #{user_input}" + text)
+          bot.api.send_message(chat_id: message.chat.id, text: "Type #{user_option(user_input)} to buy #{user_input}")
 
         when user_agreement.to_s
           bot.api.send_message(chat_id: chat, text: " You have a new inquiry from @#{message.from.username}")
-          bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully! Now sit back and let us do the heavy lifting!')
+          bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully!')
 
         when '/agent'
           bot.api.send_message(chat_id: chat, text: " @#{message.from.username} wants to have a chat!")
-          bot.api.send_message(chat_id: message.chat.id, text: 'Please wait while our next available agent gets  back to you.')
-
-        when '/stop'
-          bot.api.send_message(chat_id: message.chat.id, text: " Sad to see you leave #{message.from.first_name}. Hoping to hear from you soon!")
+          bot.api.send_message(chat_id: message.chat.id, text: 'Please wait for our next available agent.')
 
         else
-          bot.api.send_message(chat_id: message.chat.id, text: 'Ooops! Looks like you typed the wrong input. Please try again.')
+          bot.api.send_message(chat_id: message.chat.id, text: "Ooops! Didn't get that. Please try again.")
 
         end
       end
