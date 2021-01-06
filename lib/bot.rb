@@ -5,8 +5,8 @@ class Bot < Input
   def initialize
     super()
     user = Input.new
-    token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
-    chat = 1_174_054_601
+    token = 'enter your token here'
+    chat = 'enter your id here'
     text = <<~RAVEN
               \n
               /phones-to see our list of phones on sale
@@ -65,18 +65,18 @@ class Bot < Input
         end
       end
     end
+  end
 
-    def user_option(user_choice)
-      type = user_choice
-      lists = {
-        '/iphone 5' => '/yes 5',
-        '/iphone 6' => '/yes 6',
-        '/iphone 8' => '/yes 8',
-        '/iphone 10' => '/yes 10',
-        '/iphone 11' => '/yes 11',
-        '/iphone 12' => '/yes 12'
-      }
-      lists[type]
-    end
+  def user_option(user_choice)
+    type = user_choice
+    lists = {
+      '/iphone 5' => '/yes 5',
+      '/iphone 6' => '/yes 6',
+      '/iphone 8' => '/yes 8',
+      '/iphone 10' => '/yes 10',
+      '/iphone 11' => '/yes 11',
+      '/iphone 12' => '/yes 12'
+    }
+    lists[type]
   end
 end
