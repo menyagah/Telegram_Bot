@@ -4,9 +4,9 @@ require_relative 'user_inputs'
 
 class Bot < Input
   def initialize
-    token = token
-    chat = chat
     user = Input.new
+    token = 'ENTER YOUR TOKEN HERE'
+    chat = 'ENTER YOUR ID HERE'
 
     text = <<~RAVEN
               \n
@@ -45,11 +45,11 @@ class Bot < Input
           bot.api.send_message(chat_id: message.chat.id, text: "Type #{user_option(user_input)} to buy #{user_input}" + text)
 
         when user_agreement.to_s
-          bot.api.send_message(chat_id: 1_174_054_601, text: " You have a new inquiry from @#{message.from.username}")
+          bot.api.send_message(chat_id: chat, text: " You have a new inquiry from @#{message.from.username}")
           bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully! Now sit back and let us do the heavy lifting!')
 
         when '/agent'
-          bot.api.send_message(chat_id: 1_174_054_601, text: " You have a new inquiry from @#{message.from.username} who wants to directly talk to you.")
+          bot.api.send_message(chat_id: chat, text: " You have a new inquiry from @#{message.from.username} who wants to directly talk to you.")
           bot.api.send_message(chat_id: message.chat.id, text: 'Please wait for a maximum of 2minutes while our next available customer care agent reaches out to you! Thank you for shopping with us!')
 
         when '/stop'
