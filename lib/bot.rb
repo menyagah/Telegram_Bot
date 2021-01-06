@@ -5,8 +5,8 @@ class Bot < Input
   def initialize
     super()
     user = Input.new
-    token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
-    chat = 1_174_054_601
+    token = 'xxxxx enter your token instead xxxx'
+    chat = 'xxxx enter you chat id xxxx'
     text = <<~RAVEN
       \n
       Type:
