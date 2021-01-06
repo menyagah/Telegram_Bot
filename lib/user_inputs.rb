@@ -1,9 +1,7 @@
-class Input 
-    def user_choice(message, choice_2)
-          choice_2.find do |i|
-              if message == i
-                 i.chomp
-              end
-          end
+class Input
+  def user_choice(message, choice)
+    choice.find do |i|
+      i.chomp if message == i
     end
+  end
 end

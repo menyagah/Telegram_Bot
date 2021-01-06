@@ -1,2 +1,2 @@
-$token ="ENTER YOUR TOKEN HERE"
-$chat = 'ENTER YOUR ID HERE'
+token = 'ENTER YOUR TOKEN HERE'
+chat = 'ENTER YOUR ID HERE'
