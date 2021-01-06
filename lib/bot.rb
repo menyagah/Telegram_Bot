@@ -1,12 +1,12 @@
 require 'telegram/bot'
-require_relative 'bot_token'
 require_relative 'user_inputs'
 
 class Bot < Input
   def initialize
+    super()
     user = Input.new
-    token = 'ENTER YOUR TOKEN HERE'
-    chat = 'ENTER YOUR ID HERE'
+    token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
+    chat = 1_174_054_601
 
     text = <<~RAVEN
               \n
@@ -64,19 +64,15 @@ class Bot < Input
   end
 
   def user_option(user_choice)
-    case user_choice
-    when '/iphone 5'
-      '/yes 5'
-    when '/iphone 6'
-      '/yes 6'
-    when '/iphone 8'
-      '/yes 8'
-    when '/iphone 10'
-      '/yes 10'
-    when '/iphone 11'
-      '/yes 11'
-    when '/iphone 12'
-      '/yes 12'
-    end
+    type = user_choice
+    lists = {
+      '/iphone 5' => '/yes 5',
+      '/iphone 6' => '/yes 6',
+      '/iphone 8' => '/yes 8',
+      '/iphone 10' => '/yes 10',
+      '/iphone 11' => '/yes 11',
+      '/iphone 12' => '/yes 12'
+    }
+    lists[type]
   end
 end
