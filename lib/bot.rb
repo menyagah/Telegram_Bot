@@ -2,7 +2,7 @@ require 'telegram/bot'
 require_relative 'bot_token.rb'
 require_relative 'user_inputs.rb'
 
-class Bot < User
+class Bot < Input
     def initialize
         token = $token
         $chat = $chat
