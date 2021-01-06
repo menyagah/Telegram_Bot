@@ -7,7 +7,6 @@ class Bot < Input
     user = Input.new
     token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
     chat = 1_174_054_601
-
     text = <<~RAVEN
               \n
               /phones-to see our list of phones on sale
@@ -16,6 +15,19 @@ class Bot < Input
       #{'        '}
               NOTE: PLEASE SET UP YOUR TELEGRAM USERNAME SO THAT OUR NEXT AVAILABLE REPRESENTATIVE CAN WALK YOU THROUGH THE PURCHASE.
     RAVEN
+    catalog = <<~RAVEN
+      \n
+      we have a wide range of products:
+            * iphone 5 @ 5,600ksh
+            * iphone 6 @ 22,000kshs
+            * iphone 8 @ 40,000kshs
+            * iphone 10 @ 68,000kshs
+            * iphone 11 @ 110,000kshs
+            * iphone 12 @ 180,000kshs
+            Type a specific phone model starting with / e.g.
+            /iphone 5
+    RAVEN
+
     Telegram::Bot::Client.run(token) do |bot|
       bot.listen do |message|
         user_input = user.user_choice(message.text, ['/iphone 5', '/iphone 6', '/iphone 8', '/iphone 10', '/iphone 11', '/iphone 12'])
@@ -31,15 +43,7 @@ class Bot < Input
                     /agent- to talk to talk to an actual human!")
 
         when '/phones'
-          bot.api.send_message(chat_id: message.chat.id, text: "we have a wide range of products:
-                    * iphone 5 @ 5,600ksh
-                    * iphone 6 @ 22,000kshs
-                    * iphone 8 @ 40,000kshs
-                    * iphone 10 @ 68,000kshs
-                    * iphone 11 @ 110,000kshs
-                    * iphone 12 @ 180,000kshs
-                    Type a specific phone model starting with / e.g.
-                    /iphone 5")
+          bot.api.send_message(chat_id: message.chat.id, text: catalog)
 
         when user_input.to_s
           bot.api.send_message(chat_id: message.chat.id, text: "Type #{user_option(user_input)} to buy #{user_input}" + text)
@@ -49,11 +53,11 @@ class Bot < Input
           bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully! Now sit back and let us do the heavy lifting!')
 
         when '/agent'
-          bot.api.send_message(chat_id: chat, text: " You have a new inquiry from @#{message.from.username} who wants to directly talk to you.")
-          bot.api.send_message(chat_id: message.chat.id, text: 'Please wait for a maximum of 2minutes while our next available customer care agent reaches out to you! Thank you for shopping with us!')
+          bot.api.send_message(chat_id: chat, text: " @#{message.from.username} wants to have a chat!")
+          bot.api.send_message(chat_id: message.chat.id, text: 'Please wait while our next available agent gets  back to you.')
 
         when '/stop'
-          bot.api.send_message(chat_id: message.chat.id, text: " Sad to see you leave #{message.from.first_name} hoping to hear from you soon!")
+          bot.api.send_message(chat_id: message.chat.id, text: " Sad to see you leave #{message.from.first_name}. Hoping to hear from you soon!")
 
         else
           bot.api.send_message(chat_id: message.chat.id, text: 'Ooops! Looks like you typed the wrong input. Please try again.')
@@ -61,18 +65,18 @@ class Bot < Input
         end
       end
     end
-  end
 
-  def user_option(user_choice)
-    type = user_choice
-    lists = {
-      '/iphone 5' => '/yes 5',
-      '/iphone 6' => '/yes 6',
-      '/iphone 8' => '/yes 8',
-      '/iphone 10' => '/yes 10',
-      '/iphone 11' => '/yes 11',
-      '/iphone 12' => '/yes 12'
-    }
-    lists[type]
+    def user_option(user_choice)
+      type = user_choice
+      lists = {
+        '/iphone 5' => '/yes 5',
+        '/iphone 6' => '/yes 6',
+        '/iphone 8' => '/yes 8',
+        '/iphone 10' => '/yes 10',
+        '/iphone 11' => '/yes 11',
+        '/iphone 12' => '/yes 12'
+      }
+      lists[type]
+    end
   end
 end
