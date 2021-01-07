@@ -1,4 +1,4 @@
-require 'telegram/bot'
+require_relative 'telegram/bot'
 require_relative 'user_inputs'
 
 class Bot < Input

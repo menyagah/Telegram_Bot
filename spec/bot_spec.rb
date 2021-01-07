@@ -1,5 +1,5 @@
-require '../lib/bot'
-require '../lib/user_inputs'
+require_relative '../lib/bot'
+require_relative '../lib/user_inputs'
 
 describe Input do
   describe '#user_choice' do
