@@ -19,5 +19,3 @@ describe Input do
     end
   end
 end
-
-
