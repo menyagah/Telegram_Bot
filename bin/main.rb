@@ -1,2 +1,2 @@
 require_relative '../lib/bot'
-Bot.new
+Bot.new.bot_commands
