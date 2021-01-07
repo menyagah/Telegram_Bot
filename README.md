@@ -31,7 +31,8 @@
 <br />
 <p align="center">
   <a href="https://github.com/menyagah/Telegram_Bot">
-    <img src="https://user-images.githubusercontent.com/24241962/103812591-cadcec00-506f-11eb-833c-1be66df4a74b.png" alt="Logo" width="80" height="80">
+    <img src="(https://user-images.githubusercontent.com/24241962/103855216-42883680-50c3-11eb-93b8-7bd7c22fd9b9.png)
+" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Telegram Bot</h3>
@@ -66,7 +67,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Weather App Screenshot](https://user-images.githubusercontent.com/57726348/88449813-ae554a80-ce67-11ea-8500-0e3505daf29a.png)
+![image](https://user-images.githubusercontent.com/24241962/103855134-0b198a00-50c3-11eb-9be4-ea26a668b32d.png)
 
 This is a telegram bot that serves as a sales bot. The bot displays a range of items available on a fictional
 shop with their prices. The user can then pick the item they are interested in and the bot can then go ahead and send a notification to its owner with a link to the buyer for him to finalise the purchase.
@@ -162,7 +163,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Tirthajyoti Ghosh - [@terrific_ghosh](https://twitter.com/Martinnyaga20) - menyagah27@gmail.com
+Martin Nyagah - [@Martinnyaga20](https://twitter.com/Martinnyaga20) - menyagah27@gmail.com
 
 
 <!-- ACKNOWLEDGEMENTS -->
