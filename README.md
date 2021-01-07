@@ -122,8 +122,10 @@ To get a local copy up and running follow these simple steps.
     ```sh
     cd Telegram_bot/main
     ```
-       Then
 
+    then
+
+      
     ```sh
     ruby main.rb
     ```
@@ -137,6 +139,12 @@ To get a local copy up and running follow these simple steps.
 ![image](https://user-images.githubusercontent.com/24241962/103857734-1b803380-50c8-11eb-969a-583815c7465a.png)
 
 1. Open your telegram app. Navigate to BotFather and click on the link provided to your bot.
+2. Use the following commands to interact with the app
+   - `/start` - to start the bot
+   - `/phones` - to view the phones on sale
+   - `/iphone {5/6/8/10/11/12}` - to purchase the phone of your choice
+   - `/yes {5/6/8/10/11/12}` - to purchase a particular phone
+   - `/agent` - to send a notification to the customer care agents
 
 <!-- ROADMAP -->
 ## Roadmap
