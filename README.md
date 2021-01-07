@@ -134,7 +134,7 @@ To get a local copy up and running follow these simple steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-![Usage example](https://user-images.githubusercontent.com/57726348/88450206-d98d6900-ce6a-11ea-9256-f20becd92fe2.jpg)
+![image](https://user-images.githubusercontent.com/24241962/103857734-1b803380-50c8-11eb-969a-583815c7465a.png)
 
 1. Open your telegram app. Navigate to BotFather and click on the link provided to your bot.
 
