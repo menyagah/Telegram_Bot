@@ -8,3 +8,10 @@ describe Input do
         end
     end
 end
+
+describe Bot do
+
+    it{ expect(described_class).to be < Input}
+
+    
+end
