@@ -4,6 +4,7 @@ class Input
       i.chomp if message == i
     end
   end
+
   def user_option(user_choice)
     type = user_choice
     lists = {
