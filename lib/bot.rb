@@ -1,4 +1,4 @@
-require_relative 'telegram/bot'
+require 'telegram/bot'
 require_relative 'user_inputs'
 
 class Bot < Input
@@ -30,7 +30,7 @@ class Bot < Input
             (/iphone 5) in lowercase
     RAVEN
 
-    Telegram::Bot::Client.run(token) do |bot|
+    Telegram::Bot::Client.run(@token) do |bot|
       bot.listen do |message|
         user_input = user_choice(message.text, ['/iphone 5',
                                                 '/iphone 6',
@@ -56,11 +56,11 @@ class Bot < Input
           bot.api.send_message(chat_id: message.chat.id, text: "Type #{user_option(user_input)} to buy #{user_input}")
 
         when user_agreement.to_s
-          bot.api.send_message(chat_id: chat, text: " You have a new inquiry from @#{message.from.username}")
+          bot.api.send_message(chat_id: @chat, text: " You have a new inquiry from @#{message.from.username}")
           bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully!')
 
         when '/agent'
-          bot.api.send_message(chat_id: chat, text: " @#{message.from.username} wants to have a chat!")
+          bot.api.send_message(chat_id: @chat, text: " @#{message.from.username} wants to have a chat!")
           bot.api.send_message(chat_id: message.chat.id, text: 'Please wait for our next available agent.')
 
         else
