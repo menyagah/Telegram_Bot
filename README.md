@@ -31,7 +31,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/menyagah/Telegram_Bot">
-    <img src="https://user-images.githubusercontent.com/24241962/103855601-14efbd00-50c4-11eb-862c-05691381dccc.png" alt="Logo" width="100" height="100">
+    <img src="https://user-images.githubusercontent.com/24241962/103855601-14efbd00-50c4-11eb-862c-05691381dccc.png" alt="Logo" width="170" height="170">
   </a>
 
   <h3 align="center">Telegram Bot</h3>
