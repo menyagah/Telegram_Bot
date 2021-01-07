@@ -2,11 +2,11 @@ require 'telegram/bot'
 require_relative 'user_inputs'
 
 class Bot < Input
+    
   def initialize
     super()
-    user = Input.new
     token = 'xxxxx enter your token instead xxxx'
-    chat = 'xxxx enter you chat id xxxx'
+    chat = 'xxxx enter you chat id xxxx'  
     text = <<~RAVEN
       \n
       Type:
@@ -30,13 +30,13 @@ class Bot < Input
 
     Telegram::Bot::Client.run(token) do |bot|
       bot.listen do |message|
-        user_input = user.user_choice(message.text, ['/iphone 5',
+        user_input = user_choice(message.text, ['/iphone 5',
                                                      '/iphone 6',
                                                      '/iphone 8',
                                                      '/iphone 10',
                                                      '/iphone 11',
                                                      '/iphone 12'])
-        user_agreement = user.user_choice(message.text, ['/yes 5',
+        user_agreement = user_choice(message.text, ['/yes 5',
                                                          '/yes 6',
                                                          '/yes 8',
                                                          '/yes 10',
@@ -67,18 +67,5 @@ class Bot < Input
         end
       end
     end
-  end
-
-  def user_option(user_choice)
-    type = user_choice
-    lists = {
-      '/iphone 5' => '/yes 5',
-      '/iphone 6' => '/yes 6',
-      '/iphone 8' => '/yes 8',
-      '/iphone 10' => '/yes 10',
-      '/iphone 11' => '/yes 11',
-      '/iphone 12' => '/yes 12'
-    }
-    lists[type]
   end
 end

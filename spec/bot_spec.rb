@@ -7,11 +7,13 @@ describe Input do
             expect(subject.user_choice('yes 3',['yes 1','yes 2','yes 3','yes 3','yes 4'])).to eql('yes 3')
         end
     end
+    describe "#user_option" do
+        it "should return the matching item in the hash case" do
+            expect(subject.user_option('/iphone 5')).to eql('/yes 5')
+        end
+    end
 end
 
 describe Bot do
-
     it{ expect(described_class).to be < Input}
-
-    
 end
