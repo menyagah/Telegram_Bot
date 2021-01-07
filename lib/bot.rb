@@ -4,8 +4,8 @@ require_relative 'user_inputs'
 class Bot < Input
   def initialize
     super()
-    @token = 'xxxxx enter your token instead xxxx'
-    @chat = 'xxxx enter you chat id xxxx'
+    @token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
+    @chat = 1_174_054_601
   end
 
   def bot_commands
