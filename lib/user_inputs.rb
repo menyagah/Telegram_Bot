@@ -17,4 +17,17 @@ class Input
     }
     lists[type]
   end
+
+  def product(user_choice)
+    type = user_choice
+    lists = {
+      '/yes 5' => 'Iphone 5',
+      '/yes 6' => 'Iphone 6',
+      '/yes 8' => 'Iphone 8',
+      '/yes 10' => 'Iphone 10',
+      '/yes 11' => 'Iphone 11',
+      '/yes 12' => 'Iphone 12'
+    }
+    lists[type]
+  end
 end

@@ -4,8 +4,8 @@ require_relative 'user_inputs'
 class Bot < Input
   def initialize
     super()
-    @token = 'xxxxx enter your token instead xxxx'
-    @chat = 'xxxx enter you chat id xxxx'
+    @token ="1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM"
+    @chat = 1174054601
   end
 
   def bot_commands
@@ -56,7 +56,7 @@ class Bot < Input
           bot.api.send_message(chat_id: message.chat.id, text: "Type #{user_option(user_input)} to buy #{user_input}")
 
         when user_agreement.to_s
-          bot.api.send_message(chat_id: @chat, text: " You have a new inquiry from @#{message.from.username}")
+          bot.api.send_message(chat_id: @chat, text: " You have a new inquiry from @#{message.from.username} about an #{product(user_agreement)}")
           bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully!')
 
         when '/agent'
@@ -64,7 +64,7 @@ class Bot < Input
           bot.api.send_message(chat_id: message.chat.id, text: 'Please wait for our next available agent.')
 
         else
-          bot.api.send_message(chat_id: message.chat.id, text: "Ooops! Didn't get that. Please try again.")
+          bot.api.send_message(chat_id: message.chat.id, text: "Ooops! Wrong Input. Please try again.")
 
         end
       end
