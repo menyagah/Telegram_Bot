@@ -10,20 +10,20 @@ class Bot
     @token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
     @chat = 1_174_054_601
     @hash1 = {
-      '/iphone 5' => '/yes 5',
-      '/iphone 6' => '/yes 6',
-      '/iphone 8' => '/yes 8',
-      '/iphone 10' => '/yes 10',
-      '/iphone 11' => '/yes 11',
-      '/iphone 12' => '/yes 12'
+      'Iphone 5' => 'yes 5',
+      'Iphone 6' => 'yes 6',
+      'Iphone 8' => 'yes 8',
+      'Iphone 10' => 'yes 10',
+      'Iphone 11' => 'yes 11',
+      'Iphone 12' => 'yes 12'
     }
     @hash2 = {
-      '/yes 5' => ' the iphone 5',
-      '/yes 6' => ' the iphone 6',
-      '/yes 8' => ' the iphone 8',
-      '/yes 10' => ' the iphone 10',
-      '/yes 11' => ' the iphone 11',
-      '/yes 12' => ' the iphone 12'
+      'Yes 5' => ' the iphone 5',
+      'Yes 6' => ' the iphone 6',
+      'Yes 8' => ' the iphone 8',
+      'Yes 10' => ' the iphone 10',
+      'Yes 11' => ' the iphone 11',
+      'Yes 12' => ' the iphone 12'
     }
   end
 
@@ -31,8 +31,8 @@ class Bot
     text = <<~RAVEN
       \n
       Type:
-      /phones- for phones
-      /agent- to talk to an agent
+      Phones- for phones
+      Agent- to talk to an agent
       \n
       note: kindly set up your telegram username if you haven't yet.
     RAVEN
@@ -46,7 +46,7 @@ class Bot
             * iphone 11 @ 110,000kshs
             * iphone 12 @ 180,000kshs
             Type a specific phone model starting with / e.g.
-            (/iphone 5) in lowercase
+            iphone 5 in lowercase
     RAVEN
 
     Telegram::Bot::Client.run(@token) do |bot|
@@ -59,17 +59,17 @@ class Bot
         when '/start'
           bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}" + text)
 
-        when '/phones'
+        when 'Phones'
           bot.api.send_message(chat_id: message.chat.id, text: catalog)
 
         when user_input.to_s
-          bot.api.send_message(chat_id: message.chat.id, text: "Type #{product_choice} to buy #{user_input}")
+          bot.api.send_message(chat_id: message.chat.id, text: "Type (#{product_choice}) to buy #{user_input}")
 
         when user_agreement.to_s
           bot.api.send_message(chat_id: @chat, text: "Inquiry from @#{message.from.username} about#{product}")
           bot.api.send_message(chat_id: message.chat.id, text: 'Inquiry sent successfully!')
 
-        when '/agent'
+        when 'Agent'
           bot.api.send_message(chat_id: @chat, text: " @#{message.from.username} wants to have a chat!")
           bot.api.send_message(chat_id: message.chat.id, text: 'Please wait for our next available agent.')
 
