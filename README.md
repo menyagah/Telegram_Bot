@@ -141,10 +141,10 @@ To get a local copy up and running follow these simple steps.
 1. Open your telegram app. Navigate to BotFather and click on the link provided to your bot.
 2. Use the following commands to interact with the app
    - `/start` - to start the bot
-   - `/phones` - to view the phones on sale
-   - `/iphone {5/6/8/10/11/12}` - to purchase the phone of your choice
-   - `/yes {5/6/8/10/11/12}` - to purchase a particular phone
-   - `/agent` - to send a notification to the customer care agents
+   - `Phones` - to view the phones on sale
+   - `Iphone {5/6/8/10/11/12}` - to purchase the phone of your choice
+   - `Yes {5/6/8/10/11/12}` - to purchase a particular phone
+   - `Agent` - to send a notification to the customer care agents
 
 <!-- ROADMAP -->
 ## Roadmap
