@@ -7,8 +7,8 @@ class Bot
   include Product
   def initialize
     super()
-    @token = '1459415953:AAHaSG027CNV40Fz9s-CSD1jIHmVDN9FiGM'
-    @chat = 1_174_054_601
+    @token = 'XXX_Put_Your_Token_Here_XXX'
+    @chat = 'Add_Your_Chat_Id_Here'
     @hash1 = {
       'Iphone 5' => 'yes 5',
       'Iphone 6' => 'yes 6',
